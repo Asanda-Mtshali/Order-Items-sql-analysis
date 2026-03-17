@@ -46,79 +46,27 @@ The dataset was cleaned before analysis:
 
 ### 1. Total Freight Cost
 
-Calculated the total shipping cost across all orders:
-
-```sql
-SELECT SUM(freight_value) AS total_freight_cost
-FROM order_items;
-```
-
----
+Calculated the total shipping cost across all orders
 
 ### 2. Total Number of Records
 
-Counted all rows in the dataset:
-
-```sql
-SELECT COUNT(*) AS total_rows
-FROM order_items;
-```
-
----
+Counted all rows in the dataset
 
 ### 3. Most Expensive Item
 
-Identified the highest-priced item:
-
-```sql
-SELECT MAX(price) AS highest_price
-FROM order_items;
-```
-
----
+Identified the highest-priced item
 
 ### 4. Top 5 Sellers by Revenue
 
-Ranked sellers based on total sales:
-
-```sql
-SELECT TOP 5
-    seller_id,
-    SUM(price) AS total_revenue
-FROM order_items
-GROUP BY seller_id
-ORDER BY total_revenue DESC;
-```
-
----
+Ranked sellers based on total sales
 
 ### 5. Number of Unique Sellers
 
-Determined how many sellers are in the dataset:
-
-```sql
-SELECT COUNT(DISTINCT seller_id) AS number_of_sellers
-FROM order_items;
-```
-
----
+Determined how many sellers are in the dataset
 
 ### 6. Average Freight Cost per Order
 
-Calculated the average shipping cost per order:
-
-```sql
-SELECT AVG(order_freight) AS avg_freight_per_order
-FROM (
-    SELECT 
-        order_id,
-        SUM(freight_value) AS order_freight
-    FROM order_items
-    GROUP BY order_id
-) AS freight_summary;
-```
-
----
+Calculated the average shipping cost per order
 
 ## 💡 Key Insights
 
